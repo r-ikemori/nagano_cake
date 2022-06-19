@@ -1,0 +1,16 @@
+<h1>マイページ</h1>
+<%= link_to "編集する", edit_customers_path, class: "col-xs-12 btn btn-primary" %>
+
+<table>
+<tbody>
+    <tr>
+        <td>氏名</td><%= @customer.fullname %>
+        <td>カナ</td><%= @customer.fullname_kana %>
+        <td>郵便番号</td><%= @customer.postal_code %>
+        <td>住所</td><%= @customer.address %>
+        <td>電話番号</td><%= @customer.telephone_number %>
+        <td>メールアドレス</td><%= @customer.email %>
+    </tr>
+</tbody>
+
+</table>

@@ -1,0 +1,14 @@
+<h1>Topページ</h1>
+<% @items.each do |item| %>
+ <table>
+ <thead>
+    <tr>
+      <th> <%= image_tag item.image %><br>
+      <%= item.name %><br>
+      <%= item.price %>円
+      </th>
+    </tr>
+  </thead>
+ <tbody>\
+ <% end %>
+ <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
