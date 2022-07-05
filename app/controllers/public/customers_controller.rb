@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!, except: [:top, :about]
   def show
     @customer = current_customer
   end
@@ -10,6 +11,15 @@ class Public::CustomersController < ApplicationController
     customer = current_customer
     customer.update(customer_params)
     redirect_to customers_path
+  end
+  def confirm
+
+  end
+  def unsubscribe
+    @customer = current_customer
+    @customer.update(is_active: false)
+    reset_session
+    redirect_to root_path
   end
 
   private

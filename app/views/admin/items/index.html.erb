@@ -1,5 +1,9 @@
-
+<div class="container">
 <h2>商品一覧</h2>
+<div>
+<%= link_to new_admin_item_path %>
+  <i class="fa-thin fa-circle-plus"></i>
+</div>
 <table class="table tanle-hover table-inverse">
  <thead>
     <tr>
@@ -31,6 +35,6 @@
 <% end %>
 </tbody>
 </table>
-<%= link_to NEW,new_admin_item_path %>
 
 <%= paginate @items %>
+</div>
