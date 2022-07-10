@@ -1,7 +1,9 @@
-<div class="container">
-<h2>注文履歴一覧</h2>
-<table class="table tanle-hover table-inverse table-bordered border border-3">
-   <h6>注文情報</h6>
+<div class="container mx-auto">
+<h2>注文履歴詳細</h2>
+ <div class="row">
+    <div class="col-md-8">
+<table class="table tanle-hover table-inverse table-bordered border border-dark">
+<h6>注文情報</h6>
     <tr>
       <th>注文日</th>
         <td><%=@order.created_at.strftime('%Y/%m/%d') %></td>
@@ -20,17 +22,14 @@
     </tr>
     <tr>
       <th>ステータス</th>
-        <td><% if @order.status %>
-              入金確認
-            <% else %>
-              発送済み
-            <% end %>
-        </td>
+        <td><%= @order.status %></td>
     </tr>
-  </thead>
+
 </table>
+</div>
+    <div class="col-md-4">
 <table class="table tanle-hover table-inverse table-bordered border border-3">
-   <h6>請求情報</h6>
+  <h6>請求情報</h6>
     <tr>
       <th>商品合計</th>
         <td><%= @order.total_payment - 800 %></td>
@@ -48,6 +47,9 @@
   </thead>
 </table>
 </div>
+</div>
+</div>
+
 <div class="container">
 <table class="table tanle-hover table-inverse">
   <h6>注文内容</h6>

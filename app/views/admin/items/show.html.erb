@@ -3,21 +3,41 @@
     <div class="row">
       <div class="col-3">
         <h4>商品詳細</h4>
-            <%= image_tag @item.image %>
+            <%= image_tag @item.image, size: "200x200" %>
         </div>
-          <div class"col-9">
-            <p>商品名<%= @item.name %></p>
-            <p>商品説明<%= @item.introduction %></p>
-            <p>ジャンル<%= @item.genre.name %>
-            <p>税込み価格(税抜き価格)<%= @item.with_tax_price %>（<%= @item.price %>）円</p>
-            <p>販売ステータス
-             <% if @item.is_active %>
+          <div class="col-9">
+            <div class="item-group row">
+
+              <label class="col-sm-5 col-item-label">商品名</label>
+           <div class="col-sm-7">
+              <%= @item.name %>
+           </div>
+
+            <label class="col-sm-5 col-form-label">商品説明</label>
+            <div class="col-sm-7">
+              <%= @item.introduction %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">ジャンル</label>
+            <div class="col-sm-7">
+              <%= @item.genre.name %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">税込み価格(税抜き価格)</label>
+            <div class="col-sm-7">
+              <%= @item.with_tax_price %>（<%= @item.price %>）円
+            </div>
+
+            <label class="col-sm-5 col-form-label">販売ステータス</label>
+            <div class="col-sm-7">
+              <% if @item.is_active %>
                 販売中
              <% else %>
                 販売停止中
              <% end %>
-            </p>
-          <%= link_to "編集する", edit_admin_item_path(@item),class:"btn btn-success btn-sm" %>
+            </div>
+
+          <%= link_to "編集する", edit_admin_item_path(@item),class:"btn btn-success btn-sm mt-5" %>
       </div>
     </div>
   </div>

@@ -1,23 +1,54 @@
-<h1><%= @customer.fullname %>の会員詳細</h1>
-<%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "col-xs-12 btn btn-primary" %>
+ <div class="container mx-auto" style="width: 600px;">
+   <p id="notice"></p>
+    <h4><%= @customer.fullname %>の会員詳細</h4>
 
-<table>
-<tbody>
-    <tr>
-        <td>会員ID<%= @customer.id %></td><br>
-        <td>氏名<%= @customer.fullname %></td><br>
-        <td>カナ<%= @customer.fullname_kana %></td><br>
-        <td>郵便番号<%= @customer.postal_code %></td><br>
-        <td>住所<%= @customer.address %></td><br>
-        <td>電話番号<%= @customer.telephone_number %></td><br>
-        <td>メールアドレス<%= @customer.email %></td><br>
-        <td><% if @customer.is_active %>
-         有効
-       <% else %>
-         退会
-       <% end %>
-       </td>
-    </tr>
-</tbody>
 
-</table>
+      <div class="customer-group row m-5">
+
+         <label class="col-sm-5 col-item-label">会員ID</label>
+           <div class="col-sm-7">
+              <%= @customer.id %>
+           </div>
+
+            <label class="col-sm-5 col-form-label">氏名</label>
+            <div class="col-sm-7">
+              <%= @customer.fullname %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">カナ</label>
+            <div class="col-sm-7">
+              <%= @customer.fullname_kana %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">郵便番号</label>
+            <div class="col-sm-7">
+              <%= @customer.postal_code %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">住所</label>
+            <div class="col-sm-7">
+              <%= @customer.address %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">電話番号</label>
+            <div class="col-sm-7">
+              <%= @customer.telephone_number %>
+            </div>
+
+            <label class="col-sm-5 col-form-label">メールアドレス</label>
+            <div class="col-sm-7">
+              <%= @customer.email %>
+            </div>
+
+            <label class="col-sm-5 col-form-label mt-3">会員ステータス</label>
+            <div class="col-sm-7">
+              <% if @customer.is_active %>
+              　<p class="text-success">有効</p>
+            　<% else %>
+              　退会
+            　<% end %>
+            </div>
+          </div>
+
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "col-xs-12 btn btn-primary" %>
+  </div>

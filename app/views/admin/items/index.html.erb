@@ -1,8 +1,9 @@
 <div class="container">
 <h2>商品一覧</h2>
-<div>
-<%= link_to new_admin_item_path %>
-  <i class="fa-thin fa-circle-plus"></i>
+<div class="d-flex justify-content-end m-3">
+<%= link_to new_admin_item_path do %>
+  <i class="fas fa-plus-circle fa-2x"></i>
+  <% end %>
 </div>
 <table class="table tanle-hover table-inverse">
  <thead>
@@ -36,5 +37,5 @@
 </tbody>
 </table>
 
-<%= paginate @items %>
+<%= paginate @items, theme: 'twitter-bootstrap-4' %>
 </div>

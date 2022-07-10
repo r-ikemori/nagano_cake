@@ -1,37 +1,49 @@
 <main>
   <body>
-<div class="container">
-<h4>商品新規登録</h4>
-<div class="row">
+    <div class="container mx-auto" style="width: 600px;">
+      <h4>商品新規登録</h4>
+       <div class="row">
+         <p id="notice"></p>
 
-<%= form_with model: @item, url: admin_items_path do |f| %>
-<div>
-<label>商品画像</label>
-  <%= f.file_field :image, accept: "image/*" %><br>
+      <%= form_with model: @item, url: admin_items_path do |f| %>
+          <div class="form-group row">
+          <label class="col-sm-5 col-form-label">商品画像</label>
+           <div class="col-sm-7">
+            <%= f.file_field :image, accept: "image/*" %>
+           </div>
 
-  <label>商品名</label>
-  <%= f.text_field :name %><br>
+            <label class="col-sm-5 col-form-label">商品名</label>
+            <div class="col-sm-7">
+            <%= f.text_field :name %>
+            </div>
 
-  <label>商品説明</label>
-  <%= f.text_area :introduction %><br>
-  <label>ジャンル</label>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+            <label class="col-sm-5 col-form-label">商品説明</label>
+            <div class="col-sm-7">
+            <%= f.text_area :introduction %>
+            </div>
 
-  <label>税抜き価格</label>
-  <%= f.number_field :price %>円<br>
+            <label class="col-sm-5 col-form-label">ジャンル</label>
+            <div class="col-sm-7">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+            </div>
 
-  <label>販売ステータス</label>
-  <%= f.radio_button :is_active, 1, checked: true %>販売中
-　<%= f.radio_button :is_active, 0 %>販売停止中<br>
+            <label class="col-sm-5 col-form-label">税抜き価格</label>
+            <div class="col-sm-7">
+            <%= f.number_field :price %>円
+            </div>
 
-  <%= f.submit "新規登録",class:"btn btn-success" %><br>
+            <label class="col-sm-5 col-form-label">販売ステータス</label>
+            <div class="col-sm-7">
+            <%= f.radio_button :is_active, 1, checked: true %>販売中
+          　<%= f.radio_button :is_active, 0 %>販売停止中<br>
+            </div>
+           </div>
+            <%= f.submit "新規登録",class:"btn btn-success" %><br>
 
-<% end %>
+          <% end %>
 
- <%= yield %>
-
-</div>
-</div>
-</div>
+           <%= yield %>
+      </div>
+    </div>
 </body>
 </main>

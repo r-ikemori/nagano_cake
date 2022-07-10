@@ -1,17 +1,18 @@
-<h2>商品一覧</h2>
-<table>
- <tbody>
-<% @items.each do |item| %>
-<tr>
-  <td><%= link_to item_path(item.id) do %>
-     <%= image_tag item.image %><br>
+<div class="container mx-auto" style="width: 1000px;">
+  <p id="notice"></p>
+   <h2>商品一覧</h2>
+    <div class="row m-5">
+    <% @items.each do |item| %>
+    <div class="col-md-3">
+        <%= link_to item_path(item.id) do %>
+        <%= image_tag item.image, size: "150x100" %><br>
+        <% end %>
+        <%= item.name %><br>
+        ￥<%= item.price %>
+    </div>
     <% end %>
-    <%= item.name %><br>
-    ￥<%= item.price %>
-  </td>
-</tr>
-<% end %>
-</tbody>
-</table>
+  </div>
 
-<%= paginate @items %>
+
+    <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+</div>

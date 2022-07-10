@@ -24,13 +24,9 @@
       <%= f.item.name %>
     <% end %>
   </td>
-    <td><%= order.total_payment %></td>
+    <td><%= order.total_payment %>円</td>
   <td>
-    <% if order.status %>
-      入金確認
-    <% else %>
-      発送済み
-    <% end %>
+    <%= order.status %>
   </td>
   <td><%= link_to "表示する", order_path(order.id), class:"btn btn-primary" %></td>
 </tr>
